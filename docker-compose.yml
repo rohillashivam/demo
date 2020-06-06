@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  football-service:
+      volumes:
+        - ./target/demo-0.0.1-SNAPSHOT.jar:/demo.jar
+      ports:
+        - "9000:9000"
+      network_mode: 'host'
+      command: bash -c "java -jar -Xms300M -Xmx300M  /demo.jar"
+      image: 'java:8'
+      restart: on-failure
+
